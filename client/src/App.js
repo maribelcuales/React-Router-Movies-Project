@@ -14,6 +14,7 @@ const App = () => {
       axios
         .get('http://localhost:5000/api/movies')
         .then(response => {
+          console.log(response);
           setMovieList(response.data);
         })
         .catch(error => {
@@ -31,8 +32,8 @@ const App = () => {
     <div>
       <SavedList list={savedList} />
       {/* <div>Replace this Div with your Routes</div> */}
-      <Route>
-        <MovieList />
+      <Route exact path="/">
+        <MovieList movies={movieList}/>
       </Route>
       <Route>
         <Movie />
